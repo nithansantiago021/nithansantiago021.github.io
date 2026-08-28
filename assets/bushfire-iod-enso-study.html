@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When the Ocean Writes the Disaster — ENSO–IOD Teleconnections &amp; the 2019–20 Australian Bushfires</title>
+<meta name="description" content="How Indian Ocean Dipole and El Niño–Southern Oscillation phases precondition disasters worldwide, with Australia's 2019–2020 Black Summer bushfires as a case study.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --bg:        #0b0d0e;
+    --bg-elev:   #14181a;
+    --bg-elev-2: #1b2022;
+    --ember:     #e8501f;
+    --ember-soft:#f4a623;
+    --ocean:     #2e8b8b;
+    --ocean-deep:#173b3e;
+    --ash:       #cdc9c2;
+    --ash-dim:   #8b8781;
+    --line:      rgba(205,201,194,0.14);
+    --radius:    3px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ash);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Big Shoulders Display', sans-serif;
+    color:#f4f1ea;
+    font-weight:700;
+    letter-spacing:0.01em;
+    margin:0;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:var(--ember-soft); text-decoration-color:rgba(244,166,35,0.4); }
+  a:hover{ text-decoration-color:var(--ember-soft); }
+  p{ color:var(--ash); max-width:64ch; }
+  ul{ padding-left:1.15em; }
+  li{ margin-bottom:0.6em; }
+  figure{ margin:0; }
+
+  /* ---------- top bar / causal chain ribbon ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,13,14,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 5vw;
+  }
+  .back-link{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ash-dim);
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .back-link:hover{ color:var(--ember-soft); }
+
+  .chain{ display:flex; align-items:center; gap:0; list-style:none; margin:0; padding:0; }
+  .chain li{ display:flex; align-items:center; margin:0; }
+  .chain-dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--bg-elev-2); border:1px solid var(--ash-dim);
+    transition:background .4s ease, border-color .4s ease, box-shadow .4s ease;
+  }
+  .chain-label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.65rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ash-dim); margin:0 8px 0 6px;
+    transition:color .4s ease; display:none;
+  }
+  @media(min-width:760px){ .chain-label{ display:inline; } }
+  .chain-line{ width:22px; height:1px; background:linear-gradient(90deg, var(--ocean), var(--ember)); opacity:0.35; }
+  .chain li[data-stage="ocean"].active .chain-dot{ background:var(--ocean); border-color:var(--ocean); box-shadow:0 0 8px var(--ocean); }
+  .chain li[data-stage="atmosphere"].active .chain-dot{ background:#5a9e8f; border-color:#5a9e8f; box-shadow:0 0 8px #5a9e8f; }
+  .chain li[data-stage="land"].active .chain-dot{ background:var(--ember-soft); border-color:var(--ember-soft); box-shadow:0 0 8px var(--ember-soft); }
+  .chain li[data-stage="fire"].active .chain-dot{ background:var(--ember); border-color:var(--ember); box-shadow:0 0 8px var(--ember); }
+  .chain li.active .chain-label{ color:#f4f1ea; }
+
+  /* ---------- hero ---------- */
+  .hero{ padding:13vh 5vw 9vh; max-width:1020px; }
+  .eyebrow{
+    font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ember-soft); display:block; margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 5.6vw, 4.2rem); line-height:0.99;
+    background:linear-gradient(100deg, var(--ocean) 0%, var(--ember-soft) 55%, var(--ember) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    max-width:16ch;
+  }
+  .hero-sub{ margin-top:24px; font-size:1.06rem; color:var(--ash); max-width:58ch; }
+  .hero-meta{
+    margin-top:32px; font-size:0.78rem; color:var(--ash-dim);
+    display:flex; gap:18px; flex-wrap:wrap; letter-spacing:0.03em;
+  }
+  .hero-meta span::before{ content:"— "; color:var(--ash-dim); }
+
+  /* ---------- sections ---------- */
+  main{ max-width:1020px; margin:0 auto; padding:0 5vw; }
+  section{ padding:8.5vh 0; border-top:1px solid var(--line); }
+  .sec-label{ font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ash-dim); margin-bottom:14px; display:block; }
+  section[data-chain="ocean"] .sec-label{ color:var(--ocean); }
+  section[data-chain="atmosphere"] .sec-label{ color:#5a9e8f; }
+  section[data-chain="land"] .sec-label{ color:var(--ember-soft); }
+  section[data-chain="fire"] .sec-label{ color:var(--ember); }
+  section h2{ font-size:clamp(1.55rem, 3.2vw, 2.2rem); margin-bottom:18px; }
+  .dek{ font-size:1rem; color:var(--ash); max-width:66ch; margin-bottom:22px; }
+
+  .case-marker{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--ember-soft); border:1px solid rgba(232,80,31,0.35); border-radius:999px;
+    padding:5px 12px; margin-bottom:16px;
+  }
+  .case-marker::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--ember); }
+
+  .callout{
+    background:var(--bg-elev); border-left:2px solid var(--ocean);
+    padding:18px 22px; border-radius:var(--radius); font-size:0.9rem; color:var(--ash-dim);
+    margin-top:22px; max-width:70ch;
+  }
+  .callout strong{ color:var(--ash); }
+
+  .two-col{ display:grid; grid-template-columns:1fr; gap:28px; align-items:start; }
+  @media(min-width:800px){ .two-col{ grid-template-columns:1fr 1fr; } }
+
+  /* ---------- figures (static, single) ---------- */
+  .study-map {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+  margin: 20px auto 0;
+  object-fit: contain;
+}
+  .ssta-figure {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+  .ssta-image {
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+  .ssta-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+  .figure .frame{
+    aspect-ratio:16/10; border:1px dashed var(--line); background:var(--bg-elev);
+    border-radius:var(--radius); display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+  }
+  .figure .frame svg{ opacity:0.45; }
+  .figure .slot-path{
+    position:absolute; bottom:8px; left:10px; right:10px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.64rem; color:var(--ember-soft);
+    opacity:0.8; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .figure figcaption{ margin-top:10px; font-size:0.84rem; color:var(--ash-dim); }
+  .figure figcaption .fig-tag{
+    display:block; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.05em; text-transform:uppercase; color:var(--ash-dim); margin-bottom:4px;
+  }
+
+  /* ---------- gif grids (animated series) ---------- */
+  .gif-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:20px; }
+  @media(min-width:640px){ .gif-grid{ grid-template-columns:repeat(2,2fr); } }
+  .gif-grid .frame{ aspect-ratio:4/3; }
+  .gif-grid figcaption{ margin-top:8px; font-size:0.74rem; }
+
+  .ssta-gif-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.ssta-gif-grid .ssta-frame {
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+
+.ssta-gif-grid .ssta-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ssta-gif-grid figcaption {
+  margin-top: 8px;
+  font-size: 0.74rem;
+}
+
+/* Stack them on small screens */
+@media (max-width: 639px) {
+  .ssta-gif-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+  /* ---------- legend (color scale for animated maps) ---------- */
+  .legend{ margin-top:18px; max-width:600px; }
+  .legend-label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--ash-dim); margin-bottom:8px;
+  }
+  .legend-bar{ height:10px; border-radius:5px; }
+  .legend-minmax{
+    display:flex; justify-content:space-between; margin-top:6px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--ash);
+  }
+  .legend-bar.sst{ background:linear-gradient(90deg, #1b4b7a, #2e8b8b 35%, #f4f1ea 50%, var(--ember-soft) 65%, var(--ember)); }
+  .legend-bar.lst { background:linear-gradient(90deg, #0000ff, #800080 20%, #00ffff 40%, #00ff00 60%, #ffff00 80%, #ff0000); }
+  .legend-bar.kbdi { background: linear-gradient(90deg, #0000ff 0%, #00ffff 33%, #ffff00 66%,#ff0000 100%); }
+  .legend-bar.ndvi{ background:linear-gradient(90deg, #6b4a2a, #d9c98a 45%, #6ea34a, #1f5c2e); }
+
+  /* ---------- tables ---------- */
+  table{ width:100%; border-collapse:collapse; margin-top:18px; font-size:0.9rem; }
+  th, td{ text-align:left; padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ash-dim); font-weight:500; }
+  td{ color:var(--ash); }
+  .stat-table td.num{ font-family:'IBM Plex Mono', monospace; color:var(--ember-soft); }
+
+  /* ---------- references ---------- */
+  .refs{ list-style:none; margin:0; padding:0; counter-reset:refcount; }
+  .refs li{
+    counter-increment:refcount; position:relative; padding-left:2.4em;
+    font-size:0.88rem; color:var(--ash-dim); margin-bottom:16px; max-width:72ch;
+  }
+  .refs li::before{
+    content:"[" counter(refcount) "]"; position:absolute; left:0; top:0;
+    font-family:'IBM Plex Mono', monospace; color:var(--ember-soft); font-size:0.82rem;
+  }
+  .refs li strong{ color:var(--ash); }
+  .refs li a{ font-size:0.82rem; }
+
+  /* ---------- credits ---------- */
+  .credits-grid{ display:grid; grid-template-columns:1fr; gap:10px; margin-top:18px; }
+  @media(min-width:700px){ .credits-grid{ grid-template-columns:1fr 1fr; } }
+  .credit-item{
+    background:var(--bg-elev); border-radius:var(--radius); padding:14px 16px;
+    font-size:0.84rem; color:var(--ash-dim); border:1px solid var(--line);
+  }
+  .credit-item strong{ color:var(--ash); display:block; margin-bottom:3px; font-size:0.86rem; }
+
+  /* ---------- closing ---------- */
+  .synthesis{ background:var(--bg-elev); border-left:2px solid var(--ember); padding:32px clamp(20px,4vw,44px); border-radius:var(--radius); }
+  .synthesis p{ max-width:70ch; color:var(--ash); }
+
+  footer{
+    padding:8vh 5vw 6vh; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; align-items:center;
+  }
+  footer .mono{ font-size:0.72rem; color:var(--ash-dim); letter-spacing:0.04em; }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+  @media(max-width:600px){ .hero{ padding-top:10vh; } .topbar{ padding:12px 5vw; } }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a class="back-link" href="https://nithansantiago021.github.io/">← Portfolio</a>
+  <ul class="chain mono">
+    <li data-stage="ocean"><span class="chain-dot"></span><span class="chain-label">Ocean</span></li>
+    <li class="chain-line"></li>
+    <li data-stage="atmosphere"><span class="chain-dot"></span><span class="chain-label">Teleconnection</span></li>
+    <li class="chain-line"></li>
+    <li data-stage="land"><span class="chain-dot"></span><span class="chain-label">Land</span></li>
+    <li class="chain-line"></li>
+    <li data-stage="fire"><span class="chain-dot"></span><span class="chain-label">Fire</span></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <span class="eyebrow mono">Climate Explainer · Global Disasters via ENSO–IOD</span>
+  <h1>When the Ocean Writes the Disaster</h1>
+  <p class="hero-sub">Two ocean basins, thousands of kilometres from any coastline that burns or floods, quietly
+    set the odds for disasters across half the planet. This is a look at how the Indian Ocean Dipole (IOD) and
+    El Niño–Southern Oscillation (ENSO) precondition extreme events worldwide — with Australia's 2019–2020
+    "Black Summer" bushfires as a close-up case study.</p>
+  <div class="hero-meta mono">
+    <span>Nithan B S</span>
+    <span>Environmental Sciences</span>
+    <span>Remote Sensing &amp; Climate Indices</span>
+  </div>
+</header>
+
+<main>
+
+  <section id="teleconnections" data-chain="ocean">
+    <span class="sec-label mono">01 — The Idea</span>
+    <h2>Two oceans, one signal</h2>
+    <p class="dek">ENSO and the IOD are patterns of sea surface temperature that swing between warm and cool
+      phases every few years. Neither stays in its own ocean basin — both reorganise wind and rainfall patterns
+      across entire hemispheres through what climate scientists call teleconnections.</p>
+    <ul>
+      <li><strong>ENSO</strong> alternates between El Niño (warm central-eastern Pacific) and La Niña (cool
+        Pacific) states, shifting rainfall and temperature patterns across the tropics and beyond.</li>
+      <li><strong>The IOD</strong> alternates between a positive phase — warmer water in the western Indian
+        Ocean, cooler water off Sumatra — and a negative phase, typically peaking in Southern Hemisphere
+        spring.</li>
+      <li>The two are not independent: positive IOD and El Niño phases often co-occur, and each can reinforce
+        the other's regional impacts.</li>
+      <li>Research since the late 2010s has shown that ENSO's atmospheric teleconnections are themselves
+        shifting — in pattern and strength — as the ocean's mean state warms, which means the historical map of
+        "where ENSO causes what" is not fixed.</li>
+    </ul>
+  </section>
+
+  <section id="global-ledger" data-chain="atmosphere">
+    <span class="sec-label mono">02 — The Global Ledger</span>
+    <h2>A shared driver, scattered disasters</h2>
+    <p class="dek">Because ENSO and the IOD operate at planetary scale, the same ocean phase can raise disaster
+      risk in several disconnected regions at once — a pattern climate-risk researchers have systematically
+      catalogued.</p>
+    <p>A 2018 review examined peer-reviewed evidence linking extreme atmospheric hazards across sixteen regions
+      of the world to eight major climate drivers, ENSO and the IOD chief among them. Its central point for
+      disaster-risk management: an organisation or insurer exposed across multiple regions can face
+      concentrated, simultaneous losses when a single teleconnection driver moves into its hazardous phase —
+      floods in East Africa, drought in Indonesia, and bushfire risk in southeast Australia can all trace back
+      to the same swing in Indian Ocean temperature.</p>
+    <div class="callout">
+      <strong>Worth knowing:</strong> a positive IOD phase typically brings above-average rainfall and flood
+      risk to East Africa at the same time it dries out Indonesia and southeast Australia — the dipole's two
+      poles produce opposite regional outcomes from a single ocean event.
+    </div>
+  </section>
+
+  <section id="compound-signal" data-chain="atmosphere">
+    <span class="sec-label mono">03 — When Both Align</span>
+    <h2>Compound events: when ENSO and the IOD line up</h2>
+    <p class="dek">Individually, ENSO and IOD phases raise the odds of extreme weather. When a warm-Pacific ENSO
+      state and a positive IOD event occur in the same year, their effects on rainfall deficit and temperature
+      compound rather than simply add — and this is exactly what happened in the year that set up Australia's
+      most destructive fire season on record.</p>
+  </section>
+
+  <section id="case-study-intro" data-chain="land">
+    <span class="case-marker mono">Case Study</span>
+    <h2>Australia's 2019–2020 Black Summer</h2>
+    <p class="dek">The link between a positive IOD and southeast Australian bushfire risk was first established
+      in the aftermath of the 1983 "Ash Wednesday" and 2009 "Black Saturday" fires. A 2009 study found that of
+      21 significant Victorian bushfire seasons between 1950 and 2009, 11 had been preceded by a positive IOD
+      event — establishing the IOD as a stronger bushfire precursor for the region than El Niño alone.</p>
+    <p>A decade later, 2019 combined a record positive IOD with a westward-shifted, central-Pacific-type El
+      Niño; research published in 2021 showed that this specific spatial combination of Indo-Pacific warming —
+      not either driver in isolation — explained Australia's worst drought in four decades. A companion 2021
+      review found that Australia's hottest and driest year on record left exceptionally dry fuel loads across
+      the landscape, and that the compounding of two or more climate-variability modes in their fire-promoting
+      phases at once has historically raised the odds of large southeast Australian forest fires. A separate
+      large-ensemble attribution study quantified just how extreme the resulting conditions were: the combined
+      drought and fire-weather susceptibility of 2019 was unprecedented in the observed record, with roughly a
+      0.5% likelihood — equivalent to a 200-year return period — in the current climate, a probability that
+      rose substantially once the simultaneous states of ENSO, the IOD, and the Southern Annular Mode were
+      accounted for.</p>
+    <div class="callout">
+      <strong>What follows below</strong> is an independent remote-sensing pass over the same event: a
+      Google Earth Engine workflow tracing sea surface temperature, land surface temperature, drought,
+      vegetation condition, and fire activity across four recent southeast Australian fire seasons
+      (2010–11, 2015–16, 2016–17, 2019–20). It follows the same regional lens as the studies above but is not a
+      replication of their statistical or attribution methods — see <a href="#references">References</a> for
+      the underlying science this piece draws on.
+    </div>
+  </section>
+
+  <section id="study-area" data-chain="land">
+    <span class="sec-label mono">04 — Study Area</span>
+    <h2>Southeast Australia</h2>
+    <p>The analysis focuses on New South Wales and Victoria, where century-long fire history records make it
+      possible to cross-check climate preconditioning against decades of documented burn events.</p>
+    <div class="reveal" style="margin-top:20px; max-width:560px;">
+      <figure class="figure">
+        <div>
+          <img class = "study-map" src = "../assets/img/study_4.jpeg">
+        </div>
+        <figcaption><span class="fig-tag">Fig. 1</span>Study area — Southeast Australia (NSW &amp; Victoria).</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="datasets" data-chain="land">
+    <span class="sec-label mono">05 — Data</span>
+    <h2>Dataset Specification</h2>
+    <p>Thirteen datasets underpin the analysis below, spanning weekly climate indices, daily satellite
+      reflectance and temperature products, and century-scale fire history archives.</p>
+    <table>
+      <thead>
+        <tr><th>Dataset</th><th>What it captures</th><th>Coverage</th><th>Resolution</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>DMI</td><td>Indian Ocean Dipole index</td><td>Weekly, 1982–2019</td><td>°C</td></tr>
+        <tr><td>WTIO / SETIO</td><td>IOD sub-region sea surface temperature</td><td>Weekly, 1982–2019</td><td>°C</td></tr>
+        <tr><td>NINO 3.4</td><td>ENSO index</td><td>Weekly, 1982–2019</td><td>°C</td></tr>
+        <tr><td>OISST v2.0</td><td>Sea surface temperature</td><td>Daily, 1981–present</td><td>0.25° × 0.25°</td></tr>
+        <tr><td>MOD11A1</td><td>Land surface temperature / emissivity</td><td>Daily, global</td><td>1 km</td></tr>
+        <tr><td>KBDI</td><td>Keetch–Byram Drought Index</td><td>Daily, global</td><td>2 km</td></tr>
+        <tr><td>MOD13A2</td><td>Vegetation index (NDVI)</td><td>8-day</td><td>1 km</td></tr>
+        <tr><td>MOD09GA</td><td>Surface reflectance</td><td>Daily, global</td><td>500 m</td></tr>
+        <tr><td>FIRMS (MOD14/MYD14)</td><td>Fire &amp; thermal anomalies</td><td>Daily, global</td><td>1 km</td></tr>
+        <tr><td>SRTM</td><td>Elevation</td><td>—</td><td>30 m</td></tr>
+        <tr><td>MCD12Q1.051</td><td>Land cover classification</td><td>Yearly</td><td>500 m</td></tr>
+        <tr><td>Fire history (NSW, VIC)</td><td>Fire ID, type, burn area, start date, shapefiles</td><td>1903–2019</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+<section id="sst-anomaly" data-chain="ocean">
+  <span class="sec-label mono">06 — Ocean Signal</span>
+
+  <h2>Sea surface temperature anomalies, 2010–2019</h2>
+
+  <p>
+    Before land ever dries out, the ocean has already shifted. The decade's
+    SST anomalies in the Indian and Pacific basins set the stage for what follows.
+  </p>
+
+  <div class="reveal" style="margin-top:20px;">
+    <div class="media-slot ssta-figure">
+
+      <figure class="figure">
+        <div class="ssta-image">
+          <img
+            src="img/SSTA_Final_graph.png"
+            alt="Sea surface temperature anomalies in the Indian and Pacific Oceans, 2010–2019"
+          >
+        </div>
+
+        <figcaption>
+          <span class="fig-tag mono">Fig. 2</span>
+          SST anomaly — DMI (Indian Ocean) and NINO3.4 (equatorial Pacific), 2010–2019.
+        </figcaption>
+      </figure>
+      <table>
+        <thead>
+          <tr>
+            <th>Fire Season</th>
+            <th>IOD Phase</th>
+            <th>ENSO Phase</th>
+            <th>Climate-Mode Combination</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>2010–11</td>
+            <td>Negative IOD</td>
+            <td>La Niña</td>
+            <td>Negative IOD + La Niña</td>
+          </tr>
+
+          <tr>
+            <td>2015–16</td>
+            <td>Positive IOD</td>
+            <td>El Niño</td>
+            <td>Positive IOD + El Niño</td>
+          </tr>
+
+          <tr>
+            <td>2016–17</td>
+            <td>Negative IOD</td>
+            <td>La Niña / Modoki</td>
+            <td>Negative IOD + La Niña</td>
+          </tr>
+
+          <tr>
+            <td>2019–20</td>
+            <td>Positive IOD</td>
+            <td>ENSO Neutral</td>
+            <td>Positive IOD + ENSO Neutral</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="table-note">
+        <strong>Classification basis:</strong> IOD phases follow the
+        <a href="https://www.bom.gov.au/climate/iod/content/years-iod-enso.html"
+          target="_blank" rel="noopener noreferrer">Australian Bureau of Meteorology</a>
+        historical IOD classification, while ENSO phases are based on the
+        <a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/oni/v6/"
+          target="_blank" rel="noopener noreferrer">NOAA Oceanic Niño Index (ONI)</a>.
+        The 2016–17 Modoki designation is treated separately from the standard
+        ENSO classification.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <section id="ssta-animation" data-chain="atmosphere">
+  <span class="sec-label mono">07 — Teleconnection in Motion</span>
+
+  <h2>SSTA time series — Pacific &amp; Indian Ocean</h2>
+
+  <p>
+    Visual comparison of the sea surface temperature animations shows stark thermal contrasts across basins. In 2010–11, 
+    a widespread cooling pattern across the equatorial Pacific visually correlates with continental-scale moisture access. 
+    In contrast, the 2019–20 sequence highlights an intense warming spread across the western and eastern Pacific corridors, 
+    visually aligning with shifts in oceanic thermal energy prior to the fire season.
+  </p>
+
+  <div class="ssta-gif-grid">
+
+    <figure class="figure reveal">
+      <div class="ssta-frame">
+        <img src="../assets/gifs/2010_La_Nina.gif"
+             alt="SSTA animation for 2010–11">
+      </div>
+      <figcaption>(i) 2010–11</figcaption>
+    </figure>
+
+    <figure class="figure reveal">
+      <div class="ssta-frame">
+        <img src="../assets/gifs/2015_El-Nino.gif"
+             alt="SSTA animation for 2015–16">
+      </div>
+      <figcaption>(ii) 2015–16</figcaption>
+    </figure>
+
+    <figure class="figure reveal">
+      <div class="ssta-frame">
+        <img src="../assets/gifs/2016_La_Nina_mod.gif"
+             alt="SSTA animation for 2016–17">
+      </div>
+      <figcaption>(iii) 2016–17</figcaption>
+    </figure>
+
+    <figure class="figure reveal">
+      <div class="ssta-frame">
+        <img src="../assets/gifs/2019_pIOD.gif"
+             alt="SSTA animation for 2019–20">
+      </div>
+      <figcaption>(iv) 2019–20</figcaption>
+    </figure>
+
+  </div>
+
+  <div class="legend">
+    <div class="legend-label">
+      Map legend — SST anomaly (°C, relative to seasonal mean)
+    </div>
+
+    <div class="legend-bar sst"></div>
+
+    <div class="legend-minmax">
+      <span>−2°C (cool)</span>
+      <span>0</span>
+      <span>+2°C (warm)</span>
+    </div>
+  </div>
+</section>
+
+
+  <section id="lst-animation" data-chain="land">
+    <span class="sec-label mono">08 — Land Heats Up</span>
+    <h2>Land surface temperature — SE Australia</h2>
+    <p>The thermal maps display a clear visual shift in land radiance across the four years. 
+      The 2010–11 season is dominated by cooler tones (blues and greens) across the terrain. 
+      By 2019–20, the color profile transitions entirely to harsh yellows and warm tones across New South Wales and Victoria, 
+      indicating persistent surface heat retention</p>
+    <div class="gif-grid">
+      <figure class="figure reveal"><div><img class="study-map" src = "../assets/gifs/LST/2010.gif"></div><figcaption>(i) 2010–11</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src = "../assets/gifs/LST/2015.gif"></div><figcaption>(ii) 2015–16</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src = "../assets/gifs/LST/2016.gif"></div><figcaption>(iii) 2016–17</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src = "../assets/gifs/LST/2019.gif"></div><figcaption>(iv) 2019–20</figcaption></figure>
+    </div>
+    <div class="legend">
+      <div class="legend-label">Map legend — Land Surface Temperature (°C)</div>
+      <div class="legend-bar lst"></div>
+      <div class="legend-minmax"><span> low </span><span> high </span></div>
+    </div>
+  </section>
+
+  <section id="kbdi-animation" data-chain="land">
+    <span class="sec-label mono">09 — Drought Builds</span>
+    <h2>Keetch–Byram Drought Index — SE Australia</h2>
+    <p>Visualizing cumulative dryness reveals an escalating spatial footprint of drought. 
+      While 2010–11 shows extensive low-index (blue/moist) zones, the 2019–20 map shows the entire interior and eastern board saturated in deep crimson (dry), 
+      illustrating maximum soil moisture depletion.</p>
+    <div class="gif-grid">
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/KBDI/2010.gif"></div><figcaption>(i) 2010–11</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/KBDI/2015.gif"></div><figcaption>(ii) 2015–16</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/KBDI/2016.gif"></div><figcaption>(iii) 2016–17</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/KBDI/2019.gif"></div><figcaption>(iv) 2019–20</figcaption></figure>
+    </div>
+    <div class="legend">
+      <div class="legend-label">Map legend — KBDI (0–800 scale)</div>
+      <div class="legend-bar kbdi"></div>
+      <div class="legend-minmax"><span> moist </span><span> dry </span></div>
+    </div>
+  </section>
+
+  <section id="ndvi-animation" data-chain="land">
+    <span class="sec-label mono">10 — Vegetation Stress</span>
+    <h2>NDVI time series — SE Australia</h2>
+    <p>Vegetation greenness across the same four fire seasons, showing progressive vegetation stress ahead of
+      ignition.</p>
+    <div class="gif-grid">
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/NDVI/2010.gif"></div><figcaption>(i) 2010–11</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/NDVI/2015.gif"></div><figcaption>(ii) 2015–16</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/NDVI/2016.gif"></div><figcaption>(iii) 2016–17</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/NDVI/2019.gif"></div><figcaption>(iv) 2019–20</figcaption></figure>
+    </div>
+    <div class="legend">
+      <div class="legend-label">Map legend — NDVI (vegetation index)</div>
+      <div class="legend-bar ndvi"></div>
+      <div class="legend-minmax"><span> bare / dry </span><span> dense / healthy </span></div>
+    </div>
+  </section>
+
+  <section id="landcover" data-chain="land">
+    <span class="sec-label mono">11 — Fuel on the Ground</span>
+    <h2>Figure 4 — Land cover classification</h2>
+    <p>Southeast Australia's land cover in 2018, classified using the IGBP method from MODIS (MCD12Q1) — the
+      fuel base that the fires below burned through.</p>
+    <div class="reveal" style="margin-top:20px; max-width:560px;">
+      <figure class="figure">
+        <div>
+          <img class="study-map" src="../assets/img/Landcover_r.jpg">
+        </div>
+        <figcaption><span class="fig-tag">Fig. 4</span>Land cover of Southeast Australia, 2018 (IGBP classification, MODIS MCD12Q1).</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="fire-animation" data-chain="fire">
+    <span class="sec-label mono">12 — Ignition</span>
+    <h2>Fire time series — SE Australia</h2>
+    <p>Visual inspection of the FIRMS anomaly layers ties the preceding environmental indicators together. 
+      While the 2010–11, 2015–16, and 2016–17 maps remain largely blank, the 2019–20 panel shows dense, 
+      concentrated clusters of red fire pixels tracking precisely along the eastern temperate forest boundaries.</p>
+    <div class="gif-grid">
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/FIRMS/2010.gif"></div><figcaption>(i) 2010–11</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/FIRMS/2015.gif"></div><figcaption>(ii) 2015–16</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/FIRMS/2016.gif"></div><figcaption>(iii) 2016–17</figcaption></figure>
+      <figure class="figure reveal"><div><img class="study-map" src ="../assets/gifs/FIRMS/2019.gif"></div><figcaption>(iv) 2019–20</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="synthesis" data-chain="fire">
+    <span class="sec-label mono">13 — Synthesis</span>
+    <h2>Ocean to ember — and beyond Australia</h2>
+    <div class="synthesis reveal">
+      <p>Across four of Southeast Australia's most significant recent fire seasons, the same sequence holds: a
+        warm anomaly builds in the Indian and Pacific Oceans, land surface temperatures and drought indices
+        climb in step, vegetation dries and stresses, and burn area follows. The 2019–2020 season shows what
+        happens when that sequence hits its worst-case alignment — a record positive IOD and a specifically
+        positioned El Niño compounding each other into Australia's driest year on record.</p>
+      <p>This is not a uniquely Australian story. The same ocean phases that dried out southeast Australia in
+        2019 were, in that same window, altering flood and drought risk from East Africa to Indonesia — and as
+        of August 2026, the World Meteorological Organization's outlook points to a strong El Niño intensifying
+        across the Pacific and persisting into early 2027, a live reminder that this teleconnection chain isn't
+        confined to case studies. It's active right now.</p>
+    </div>
+  </section>
+
+  <section id="references">
+    <span class="sec-label mono">Further Reading</span>
+    <h2>References</h2>
+    <p class="dek">The case study above builds on — and is careful not to duplicate — the following published
+      research on IOD/ENSO bushfire preconditioning and global teleconnections.</p>
+    <ol class="refs">
+      <li><strong>Cai, W., Cowan, T., &amp; Raupach, M. (2009).</strong> Positive Indian Ocean Dipole events
+        precondition southeast Australia bushfires. <em>Geophysical Research Letters</em>, 36, L19710.
+        <br><a href="https://doi.org/10.1029/2009GL039902" target="_blank" rel="noopener">doi.org/10.1029/2009GL039902</a></li>
+      <li><strong>Zhang, L., et al. (2021).</strong> Tropical Indo-Pacific compounding thermal conditions drive
+        the 2019 Australian extreme drought. <em>Geophysical Research Letters</em>, 48, e2020GL090323.
+        <br><a href="https://doi.org/10.1029/2020GL090323" target="_blank" rel="noopener">doi.org/10.1029/2020GL090323</a></li>
+      <li><strong>Abram, N. J., Henley, B. J., Sen Gupta, A., ... Boer, M. M., et al. (2021).</strong>
+        Connections of climate change and variability to large and extreme forest fires in southeast Australia.
+        <em>Communications Earth &amp; Environment</em>, 2, 8.
+        <br><a href="https://doi.org/10.1038/s43247-020-00065-8" target="_blank" rel="noopener">doi.org/10.1038/s43247-020-00065-8</a></li>
+      <li><strong>Squire, D. T., Richardson, D., Risbey, J. S., et al. (2021).</strong> Likelihood of
+        unprecedented drought and fire weather during Australia's 2019 megafires. <em>npj Climate and
+        Atmospheric Science</em>, 4, 64.
+        <br><a href="https://doi.org/10.1038/s41612-021-00220-8" target="_blank" rel="noopener">doi.org/10.1038/s41612-021-00220-8</a></li>
+      <li><strong>Steptoe, H., Jones, S. E. O., &amp; Fox, H. (2018).</strong> Correlations between extreme
+        atmospheric hazards and global teleconnections: Implications for multihazard resilience. <em>Reviews of
+        Geophysics</em>, 56(1), 50–78.
+        <br><a href="https://doi.org/10.1002/2017RG000567" target="_blank" rel="noopener">doi.org/10.1002/2017RG000567</a></li>
+      <li><strong>Yeh, S.-W., et al. (2018).</strong> ENSO atmospheric teleconnections and their response to
+        greenhouse gas forcing. <em>Reviews of Geophysics</em>, 56(1), 185–206.
+        <br><a href="https://doi.org/10.1002/2017RG000568" target="_blank" rel="noopener">doi.org/10.1002/2017RG000568</a></li>
+      <li><strong>World Meteorological Organization (2026).</strong> El Niño/La Niña Update — current outlook
+        indicating a strong El Niño developing across the Pacific through early 2027.
+        <br><a href="https://wmo.int/resources/publication-series/el-ninola-nina-updates" target="_blank" rel="noopener">wmo.int — El Niño/La Niña Updates</a></li>
+    </ol>
+  </section>
+
+  <section id="credits">
+    <span class="sec-label mono">Credits</span>
+    <h2>Data &amp; tools</h2>
+    <p class="dek">All remote-sensing layers were processed in Google Earth Engine. Grateful to the following
+      agencies and archives for open access to the underlying data.</p>
+    <div class="credits-grid">
+      <div class="credit-item"><strong>Google Earth Engine</strong>Cloud platform used to process and export all MODIS, OISST, and SRTM layers in this study.</div>
+      <div class="credit-item"><strong>NOAA OSMC / Ocean Climate Stations</strong>DMI, WTIO, and SETIO weekly climate index data.</div>
+      <div class="credit-item"><strong>NOAA PSL — OISST v2.0</strong>Optimum Interpolation Sea Surface Temperature dataset.</div>
+      <div class="credit-item"><strong>NASA LP DAAC / MODIS</strong>MOD11A1 (LST), MOD13A2 (NDVI), MOD09GA (surface reflectance), MCD12Q1.051 (land cover).</div>
+      <div class="credit-item"><strong>NASA FIRMS</strong>MOD14/MYD14 fire and thermal anomaly detections.</div>
+      <div class="credit-item"><strong>NASA / USGS SRTM</strong>30 m elevation data for the study area.</div>
+      <div class="credit-item"><strong>State Governments of Australia</strong>Fire ID, type, burnt area, and shapefile records for NSW and Victoria, 1903–2019.</div>
+      <div class="credit-item"><strong>Cai, Cowan &amp; Raupach (2009)</strong>Foundational scatterplot and framing referenced in the introduction — see References.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="mono">Climate explainer &amp; remote-sensing case study </span>
+  <a class="back-link" href="https://nithansantiago021.github.io/">← Back to portfolio</a>
+</footer>
+
+<script>
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  }
+
+  const chainItems = document.querySelectorAll('.chain li[data-stage]');
+  const sections = document.querySelectorAll('section[data-chain]');
+  const setActive = (stage) => {
+    chainItems.forEach(li => li.classList.toggle('active', li.dataset.stage === stage));
+  };
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.dataset.chain);
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => sectionObserver.observe(s));
+  setActive('ocean');
+</script>
+
+</body>
+</html>
