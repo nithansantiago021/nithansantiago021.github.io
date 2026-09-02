@@ -182,7 +182,7 @@
       <a class="navlink" href="#about">About</a>
       <a class="navlink" href="#projects">Projects</a>
       <a class="navlink" href="#contact">Contact</a>
-      <a class="btn" href="assets/Nithan B S - Resume.pdf" target="_blank" rel="noopener" onclick="gtag('event', 'resume_click');">Resume</a>
+      <a class="btn" href="assets/Nithan B S - Resume.pdf" target="_blank" rel="noopener" onclick="gtag('event', 'resume_click', {project_name: 'resume'});">Resume</a>
     </div>
   </nav>
 </header>
@@ -244,6 +244,23 @@
           <a href="assets/bushfire-iod-enso-study.html" target="_blank" rel="noopener" onclick="gtag('event','project_click', {project_name: 'enso-iod'});">Open →</a>
         </div>
       </div>
+
+
+      <div class="project-card reveal" style="--card-accent:var(--teal)">
+        <div>
+          <div class="project-cat">Climate Risk Analysis</div>
+          <h3>India Climate Risk & Warming Analysis — CMIP6</h3>
+          <p>Developed a spatial climate-risk assessment workflow for India using CMIP6 climate projections, district-level geospatial data, and
+            temperature indicators to analyse historical and future climate conditions under the SSP2-4.5 scenario.</p>
+          <div class="tag-row">
+            <span class="tag">CMIP6</span><span class="tag">Climate Risk</span><span class="tag">Xarray</span>
+          </div>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/nithansantiago021/India-Climate-Risk-assessment" target="_blank" rel="noopener" onclick="gtag('event', 'github_click', {project_name: 'IND-Climate-risk'});">Code Repository →</a>
+        </div>
+      </div>
+
       
       <div class="project-card reveal" style="--card-accent:var(--teal)">
         <div>
@@ -287,21 +304,6 @@
         </div>
         <div class="card-links">
           <a href="https://github.com/nithansantiago021/Air_tracker-Flight_Analytics.git" target="_blank" rel="noopener" onclick="gtag('event', 'github_click', {project_name: 'air-tracker'});">Code Repository →</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal" style="--card-accent:var(--teal)">
-        <div>
-          <div class="project-cat">Unsupervised ML</div>
-          <h3>Telangana PDS Analysis</h3>
-          <p>Applied unsupervised machine learning techniques including clustering, anomaly detection, and
-            Principal Component Analysis (PCA) to evaluate Public Distribution System datasets.</p>
-          <div class="tag-row">
-            <span class="tag">Clustering</span><span class="tag">Anomaly Detection</span><span class="tag">PCA</span>
-          </div>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/nithansantiago021/Telangana-PDS-Cluster-Intelligence-System.git" target="_blank" rel="noopener" onclick="gtag('event', 'github_click', {project_name: 'Telangana-PDS'});">Code Repository →</a>
         </div>
       </div>
 
