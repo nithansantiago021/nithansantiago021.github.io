@@ -155,6 +155,27 @@
   .card-links a{ text-decoration:none; color:var(--ember-soft); white-space:nowrap; }
   .card-links a:hover{ color:#f4f1ea; }
 
+  .ongoing-projects{
+  margin-top:32px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  }
+
+  .ongoing-projects .project-cat{
+    display:block;
+    margin-bottom:8px;
+  }
+
+  .ongoing-projects p{
+    margin:0;
+    font-size:0.9rem;
+    color:var(--ash-dim);
+  }
+
+  .ongoing-projects strong{
+    color:#f4f1ea;
+  }
+
   /* ---------- footer ---------- */
   footer{
     padding:8vh 5vw 6vh; border-top:1px solid var(--line);
@@ -308,6 +329,16 @@
       </div>
 
     </div>
+    <div class="ongoing-projects">
+      <span class="project-cat">ONGOING PROJECTS</span>
+      <p>
+        <strong>Legal Intelligence Assistant</strong> —
+        Combining Generative AI, RAG, NLP, vector databases, LLM inference,
+        backend/API engineering, and AI evaluation to build a
+        citation-grounded legal document intelligence system.
+      </p>
+    </div>
+
   </section>
 </main>
 
