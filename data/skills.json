@@ -1,0 +1,339 @@
+{
+  "categories": [
+    {
+      "id": "data-science-ml",
+      "order": 1,
+      "title": "Data Science & ML",
+      "description": "Modeling, evaluation, and the analytical foundations behind the systems.",
+      "skills": [
+        {
+          "name": "Python",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["python3"]
+        },
+        {
+          "name": "Pandas",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "NumPy",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "Scikit-learn",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["sklearn"]
+        },
+        {
+          "name": "Power BI",
+          "tracks": ["domain"]
+        },
+        {
+          "name": "PyTorch",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "BERT",
+          "tracks": ["aiml"],
+          "aliases": ["bert"]
+        },
+        {
+          "name": "Hugging Face Transformers",
+          "tracks": ["aiml"],
+          "aliases": ["transformers", "huggingface"]
+        },
+        {
+          "name": "LLMs",
+          "tracks": ["aiml"],
+          "aliases": ["large language models"]
+        },
+        {
+          "name": "RAG",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["retrieval augmented generation"]
+        },
+        {
+          "name": "Agent orchestration",
+          "tracks": ["aiml"],
+          "aliases": ["agents", "agentic workflows"]
+        },
+        {
+          "name": "Prompt engineering",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "Model evaluation",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "NLP",
+          "tracks": ["aiml"],
+          "aliases": ["natural language processing"]
+        },
+        {
+          "name": "Embeddings",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "XGBoost",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "Statistical modeling",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "R",
+          "tracks": ["domain"],
+          "aliases": ["rstudio"]
+        },
+        {
+          "name": "EDA",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["exploratory data analysis"]
+        }
+      ]
+    },
+    {
+      "id": "engineering-deployment",
+      "order": 2,
+      "title": "Engineering & Deployment",
+      "description": "The services, pipelines, and deployment surface that make the work usable.",
+      "skills": [
+        {
+          "name": "SQL",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "PostgreSQL",
+          "tracks": ["aiml"],
+          "aliases": ["postgres", "pgvector"]
+        },
+        {
+          "name": "MySQL",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "ChromaDB",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "FastAPI",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "REST APIs",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["rest", "api"]
+        },
+        {
+          "name": "LangChain",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "LangGraph",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "Strands",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "Streamlit",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "Docker",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "Git / GitHub",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["git", "github"]
+        },
+        {
+          "name": "GitHub Actions",
+          "tracks": ["aiml"],
+          "aliases": ["ci/cd", "cicd"]
+        },
+        {
+          "name": "AWS S3 / EC2",
+          "tracks": ["aiml"],
+          "aliases": ["aws", "s3", "ec2"]
+        },
+        {
+          "name": "Render",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "Hugging Face Spaces",
+          "tracks": ["aiml"],
+          "aliases": ["huggingface spaces", "hf spaces"]
+        },
+        {
+          "name": "ETL pipelines",
+          "tracks": ["aiml"],
+          "aliases": ["etl", "data pipelines"]
+        },
+        {
+          "name": "BeautifulSoup / Scrapy / Selenium",
+          "tracks": ["aiml"],
+          "aliases": ["beautifulsoup", "scrapy", "selenium", "web scraping"]
+        },
+        {
+          "name": "Pytest",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "vLLM",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "Kubernetes",
+          "tracks": ["aiml"]
+        },
+        {
+          "name": "Linux",
+          "tracks": ["aiml"],
+          "aliases": ["ubuntu"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-analytics",
+      "order": 3,
+      "title": "Advanced Analytics",
+      "description": "Climate, geospatial, and sustainability frameworks applied to decision problems.",
+      "skills": [
+        {
+          "name": "Climate risk and geospatial analysis",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["climate risk", "geospatial", "gis"]
+        },
+        {
+          "name": "Climate data analysis",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["climate data"]
+        },
+        {
+          "name": "Physical and transition climate risk",
+          "tracks": ["domain"],
+          "aliases": ["physical climate risk", "transition risk"]
+        },
+        {
+          "name": "CMIP6",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "RCP / SSP scenarios",
+          "tracks": ["domain"],
+          "aliases": ["rcp", "ssp", "ssp126", "ssp245", "ssp585"]
+        },
+        {
+          "name": "IMD",
+          "tracks": ["domain"],
+          "aliases": ["india meteorological department"]
+        },
+        {
+          "name": "Google Earth Engine",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["gee"]
+        },
+        {
+          "name": "QGIS",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "GeoPandas",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "GIS",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["gis"]
+        },
+        {
+          "name": "Spatial visualisation",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["spatial visualization"]
+        },
+        {
+          "name": "Xarray",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "rioxarray",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["rio xarray"]
+        },
+        {
+          "name": "NetCDF",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "Remote sensing",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "Hazard mapping",
+          "tracks": ["aiml", "domain"],
+          "aliases": ["hazard map"]
+        },
+        {
+          "name": "Environmental data processing",
+          "tracks": ["domain"],
+          "aliases": ["environmental data"]
+        },
+        {
+          "name": "Sentinel-2",
+          "tracks": ["domain"]
+        },
+        {
+          "name": "ESG and BRSR",
+          "tracks": ["domain"],
+          "aliases": ["esg", "brsr", "sebi brsr"]
+        },
+        {
+          "name": "TCFD",
+          "tracks": ["domain"]
+        },
+        {
+          "name": "CSRD",
+          "tracks": ["domain"]
+        },
+        {
+          "name": "Biodiversity Net Gain",
+          "tracks": ["domain"],
+          "aliases": ["bng", "biodiversity"]
+        },
+        {
+          "name": "Defra Metric 4.0",
+          "tracks": ["domain"],
+          "aliases": ["defra", "metric 4.0"]
+        },
+        {
+          "name": "Emissions and scenario analysis",
+          "tracks": ["domain"],
+          "aliases": ["emissions", "scenario analysis"]
+        },
+        {
+          "name": "Spatial-temporal modeling",
+          "tracks": ["aiml", "domain"]
+        },
+        {
+          "name": "Climate indices",
+          "tracks": ["domain"],
+          "aliases": ["enso", "iod"]
+        },
+        {
+          "name": "Disaster risk",
+          "tracks": ["domain"]
+        },
+        {
+          "name": "Quantitative analysis",
+          "tracks": ["aiml", "domain"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "roles": [
+    {
+      "id": "collegepur",
+      "kind": "role",
+      "role": "Data Science & AI Engineering Intern",
+      "organization": "Collegepur",
+      "period": {
+        "start": "2026-10",
+        "end": null,
+        "display": "Oct 2026 – Present"
+      },
+      "location": "Remote",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "priority": {
+        "aiml": 1,
+        "domain": 2,
+        "balanced": 1
+      },
+      "bullets": {
+        "aiml": [
+          "Designed and deployed an automated answer-sheet evaluation engine combining multimodal VLMs (Groq VLM), local Ollama fallbacks (Qwen, Llama 3.2), PyTorch, EasyOCR, and Tesseract to grade handwritten and structured responses.",
+          "Built a fault-tolerant inference and validation pipeline backed by an automated Pytest suite, ensuring consistent grading accuracy and graceful fallback handling under API latency or rate limits.",
+          "Engineered scalable Python web scraping and ingestion pipelines (BeautifulSoup, Scrapy, Selenium) to extract, clean, and structure domain-specific educational datasets."
+        ],
+        "domain": [
+          "Architected automated evaluation and transcription pipelines and statistical difficulty predictors (AdaptiveQuestionGenerator, XGBoost) using Python, PyTorch, and Streamlit.",
+          "Performed structured exploratory data analysis and reporting to improve grading consistency.",
+          "Built structured data validation and analytical workflows to standardize assessment scoring."
+        ]
+      },
+      "milestones": [],
+      "stack": [
+        "Python",
+        "PyTorch",
+        "Groq VLM",
+        "Ollama",
+        "EasyOCR",
+        "Tesseract",
+        "Pytest",
+        "Streamlit",
+        "BeautifulSoup",
+        "Scrapy",
+        "Selenium"
+      ],
+      "artifact_project_id": "task-ocr"
+    },
+    {
+      "id": "mercor-ai-project-odin",
+      "kind": "role",
+      "role": "Freelance AI Evaluator & Technical Writer",
+      "organization": "Mercor AI",
+      "period": {
+        "start": "2026-10",
+        "end": "2026-11",
+        "display": "Oct 2026 – Nov 2026"
+      },
+      "location": "Remote",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "priority": {
+        "aiml": 2,
+        "domain": 3,
+        "balanced": 2
+      },
+      "bullets": {
+        "aiml": [
+          "Authored and verified reproducible Python data engineering and geospatial workflows (xarray, GeoPandas, web scraping, and API ingestion) with step-by-step reasoning walkthroughs to generate high-signal training and evaluation data for frontier AI models.",
+          "Built deterministic validation checks and end-to-end execution environments for climate time-series (CMIP6) and automated extraction pipelines, ensuring clean edge-case handling and reproducible outputs."
+        ],
+        "domain": [
+          "Authored clear task instructions, reproducible execution steps, and structured technical documentation for model training and evaluation datasets.",
+          "Authored and verified reproducible Python data engineering and geospatial workflows (xarray, GeoPandas, web scraping, and API ingestion) with step-by-step reasoning walkthroughs to generate high-signal training and evaluation data for frontier AI models.",
+          "Built deterministic validation checks and end-to-end execution environments for climate time-series (CMIP6) and automated extraction pipelines, ensuring clean edge-case handling and reproducible outputs."
+        ]
+      },
+      "milestones": [],
+      "stack": [
+        "Python",
+        "xarray",
+        "GeoPandas",
+        "CMIP6",
+        "API ingestion",
+        "Technical writing",
+        "AI evaluation"
+      ],
+      "artifact_project_id": null
+    },
+    {
+      "id": "career-transition-2026",
+      "kind": "transition",
+      "role": "Applied AI, Data Science & ESG Engineering Transition",
+      "organization": "Independent & GUVI–HCL / IITM Pravartak Program",
+      "period": {
+        "start": "2026-01",
+        "end": "2026-07",
+        "display": "Jan 2026 – Jul 2026"
+      },
+      "location": "Chennai, India",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "priority": {
+        "aiml": 3,
+        "domain": 4,
+        "balanced": 3
+      },
+      "bullets": {
+        "aiml": [
+          "Completed intensive applied data science and machine learning engineering training (Python, SQL, PyTorch, Scikit-learn, RAG, and ETL pipelines).",
+          "Built and deployed end-to-end ML and analytics systems including FinBERT Financial Sentiment Prediction, Marketing Campaign Analytics, and Air Tracker ETL."
+        ],
+        "domain": [
+          "Integrated Environmental Sciences domain expertise with modern geospatial remote sensing (Google Earth Engine, QGIS, GeoPandas, Xarray) and corporate ESG frameworks (SEBI BRSR, TCFD, CSRD).",
+          "Architected early prototypes for Biodiversity Net Gain compliance and physical climate risk analytics."
+        ]
+      },
+      "milestones": [],
+      "stack": [
+        "Python",
+        "SQL",
+        "PyTorch",
+        "Scikit-learn",
+        "RAG",
+        "ETL",
+        "Google Earth Engine",
+        "QGIS",
+        "GeoPandas",
+        "Xarray",
+        "SEBI BRSR",
+        "TCFD",
+        "CSRD"
+      ],
+      "artifact_project_id": null
+    },
+    {
+      "id": "exam-preparation-research",
+      "kind": "milestone",
+      "role": "Independent Researcher & Competitive Examination Fellow",
+      "organization": "Independent",
+      "period": {
+        "start": "2020-06",
+        "end": "2026-01",
+        "display": "Jun 2020 – Jan 2026"
+      },
+      "location": "New Delhi & Chennai, India",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "priority": {
+        "aiml": 5,
+        "domain": 5,
+        "balanced": 5
+      },
+      "bullets": {
+        "aiml": [
+          "Completed intensive, full-time interdisciplinary research and analytical preparation for the Indian Civil Services Examinations, mastering structured problem-solving, quantitative synthesis, and regulatory policy evaluation.",
+          "Qualified UGC-NET in Environmental Sciences (2021) and cleared the IGNOU Ph.D. Entrance Examination (2022)."
+        ],
+        "domain": [
+          "Maintained continuous technical development alongside national examination preparation, including UGC-NET qualification in 2021.",
+          "Participated in competitive selection processes for scientific and research positions, including reaching the NIOT Scientist-B interview stage.",
+          "Continued independent development in Python, data science, ESG analytics, geospatial analysis, and climate-risk research alongside examination preparation."
+        ]
+      },
+      "milestones": [
+        {
+          "date": "2021",
+          "label": "UGC-NET Qualified — Environmental Sciences",
+          "tracks": [
+            "aiml",
+            "domain"
+          ]
+        },
+        {
+          "date": "2022",
+          "label": "IGNOU Ph.D. Entrance Examination Qualified — Environmental Sciences",
+          "tracks": [
+            "domain"
+          ]
+        },
+        {
+          "date": "Selection process",
+          "label": "NIOT Scientist-B interview stage",
+          "tracks": [
+            "domain"
+          ]
+        }
+      ],
+      "stack": [
+        "Interdisciplinary research",
+        "Quantitative synthesis",
+        "Regulatory policy evaluation",
+        "Environmental policy",
+        "Climate governance",
+        "Disaster management"
+      ],
+      "artifact_project_id": null
+    },
+    {
+      "id": "rimes",
+      "kind": "internship",
+      "role": "Research Intern",
+      "organization": "Regional Integrated Multi-Hazard Early Warning System (RIMES)",
+      "period": {
+        "start": "2019-05",
+        "end": "2019-07",
+        "display": "May – Jul 2019"
+      },
+      "location": "Chennai, India",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "priority": {
+        "aiml": 4,
+        "domain": 1,
+        "balanced": 4
+      },
+      "bullets": {
+        "aiml": [
+          "Built automated Python and SQL data processing workflows to ingest and analyze multi-hazard meteorological time-series datasets for early warning risk modeling.",
+          "Collaborated with cross-functional research and engineering teams to validate statistical model outputs and deliver actionable technical documentation."
+        ],
+        "domain": [
+          "Conducted a district-level drought-risk assessment for Dharmapuri, Tamil Nadu, integrating Landsat-derived NDVI/NDWI, SPI, rainfall anomalies, and Moisture Adequacy Index (MAI) to assess meteorological and agricultural drought conditions.",
+          "Applied GIS-based spatial and temporal analysis to map drought patterns across blocks and identify water-limiting areas, including Pennagaram and Nallampalli.",
+          "Examined relationships between rainfall anomalies and vegetation response, and documented methodological limitations including the need for longer precipitation baselines for statistically robust SPI analysis."
+        ]
+      },
+      "milestones": [],
+      "stack": [
+        "Python",
+        "SQL",
+        "Landsat",
+        "NDVI",
+        "NDWI",
+        "SPI",
+        "MAI",
+        "GIS",
+        "Drought risk"
+      ],
+      "artifact_project_id": null
+    }
+  ]
+}

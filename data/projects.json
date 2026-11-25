@@ -1,0 +1,317 @@
+{
+  "projects": [
+    {
+      "id": "esg-brsr-intelligence",
+      "title": "ESG & BRSR Intelligence Platform",
+      "type": "deployed_app",
+      "type_label": "Deployed app",
+      "status": "live",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "priority": {
+        "aiml": 1,
+        "domain": 1,
+        "balanced": 1
+      },
+      "category": {
+        "aiml": "Generative AI / RAG",
+        "domain": "ESG & BRSR Intelligence",
+        "balanced": "Generative AI / ESG"
+      },
+      "summary": {
+        "aiml": "Built an ESG/BRSR intelligence platform for structured sustainability-report analysis, combining document retrieval, ESG metric extraction, cited Q&A, automated chart generation, and company-level dashboards.",
+        "domain": "Turns SEBI BRSR and ESG disclosures into structured, cited analysis: document retrieval, metric extraction, Q&A, charts, and company-level dashboards.",
+        "balanced": "A RAG-based ESG and BRSR intelligence platform for document retrieval, metric extraction, cited answers, automated charts, and company-level dashboards."
+      },
+      "stack": [
+        "RAG",
+        "Vector DB",
+        "LLM",
+        "BRSR",
+        "ESG analytics",
+        "Document Intelligence",
+        "Python",
+        "Streamlit"
+      ],
+      "live_url": "https://ntini97-esg-brsr-intelligence.hf.space/",
+      "repo_url": "https://github.com/nithansantiago021/eseg-brsr-intelligence"
+    },
+    {
+      "id": "biogain-ai",
+      "title": "BioGain-AI — Biodiversity Intelligence Engine",
+      "type": "deployed_app",
+      "type_label": "Deployed build (private)",
+      "status": "private",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "priority": {
+        "aiml": 2,
+        "domain": 4,
+        "balanced": 3
+      },
+      "category": {
+        "aiml": "Agentic RAG / Backend",
+        "domain": "Biodiversity Net Gain",
+        "balanced": "Agentic RAG / Biodiversity"
+      },
+      "summary": {
+        "aiml": "Built an agentic RAG engine synthesizing multi-format ecological data (PDF, CSV, MD) into grounded restoration recommendations using hybrid vector similarity + SQL retrieval and a LangGraph state/validation gatekeeper.",
+        "domain": "Biodiversity intelligence workflow framed around Sentinel-2 inputs and Defra Metric 4.0 concepts, producing source-grounded restoration recommendations for biodiversity net gain decisions.",
+        "balanced": "Agentic RAG for biodiversity net gain: multi-format ecological data, hybrid retrieval, validation gates, and source-grounded restoration recommendations."
+      },
+      "stack": [
+        "LangChain",
+        "LangGraph",
+        "FastAPI",
+        "PostgreSQL",
+        "RAG",
+        "Docker",
+        "GitHub Actions",
+        "Sentinel-2",
+        "Defra Metric 4.0"
+      ],
+      "link_note": "Private build; no public repository or live URL provided.",
+      "live_url": null,
+      "repo_url": null
+    },
+    {
+      "id": "task-ocr",
+      "title": "task_ocr — Handwritten Answer-Sheet Evaluation",
+      "type": "internal_app",
+      "type_label": "Internal app",
+      "status": "internal",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "priority": {
+        "aiml": 3,
+        "domain": 6,
+        "balanced": 4
+      },
+      "category": {
+        "aiml": "OCR & Evaluation Pipeline",
+        "domain": "Academic Assessment Analytics",
+        "balanced": "OCR & Evaluation"
+      },
+      "summary": {
+        "aiml": "Engineered task_ocr, a Python and Streamlit application automating handwritten answer-sheet OCR transcription and rubric-based evaluation, with multimodal VLM inference, local Ollama fallbacks, PyTorch, EasyOCR, Tesseract, and Pytest validation.",
+        "domain": "Standardizes assessment scoring and rubric workflows for academic datasets, with structured validation and exploratory reporting to improve grading consistency.",
+        "balanced": "An OCR and rubric-evaluation application for handwritten answer sheets, with multimodal VLM inference and local fallbacks."
+      },
+      "stack": [
+        "Python",
+        "Streamlit",
+        "PyTorch",
+        "EasyOCR",
+        "Tesseract",
+        "Groq VLM",
+        "Ollama",
+        "Pytest"
+      ],
+      "link_note": "Internal Collegepur project; no public URL.",
+      "live_url": null,
+      "repo_url": null
+    },
+    {
+      "id": "financial-news-sentiment",
+      "title": "Financial News Sentiment Prediction",
+      "type": "deployed_app",
+      "type_label": "Deployed app",
+      "status": "live",
+      "tracks": [
+        "aiml"
+      ],
+      "priority": {
+        "aiml": 4,
+        "domain": 8,
+        "balanced": 6
+      },
+      "category": {
+        "aiml": "NLP / Deep Learning",
+        "domain": "Cross-track NLP",
+        "balanced": "NLP / Deep Learning"
+      },
+      "summary": {
+        "aiml": "Built an NLP pipeline leveraging BERT and deep learning models to classify sentiment from financial news texts.",
+        "domain": "Cross-track NLP work: a BERT-based text-classification pipeline demonstrating model evaluation and deployment workflows.",
+        "balanced": "A BERT-based NLP pipeline for financial news sentiment classification."
+      },
+      "stack": [
+        "BERT",
+        "Deep Learning",
+        "Neural Networks",
+        "Python"
+      ],
+      "live_url": "https://ntini97-financial-sentiment-dashboard.hf.space/",
+      "repo_url": "https://github.com/nithansantiago021/Financial-News-Sentiment-Prediction-using-Deep-Learning-BERT",
+      "notebooks": [
+        {
+          "label": "MODELING NOTEBOOK",
+          "url": "https://github.com/nithansantiago021/Financial-News-Sentiment-Prediction-using-Deep-Learning-BERT/blob/main/Financial_News_Sentiment_Prediction_Complete.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "marketing-campaign-analytics",
+      "title": "Marketing Campaign Analysis & Text-to-SQL Agent",
+      "type": "deployed_app",
+      "type_label": "Deployed app",
+      "status": "live",
+      "tracks": [
+        "aiml"
+      ],
+      "priority": {
+        "aiml": 5,
+        "domain": 7,
+        "balanced": 5
+      },
+      "category": {
+        "aiml": "Analytics & LLM Tooling",
+        "domain": "Cross-track Analytics",
+        "balanced": "Analytics & LLM Tooling"
+      },
+      "summary": {
+        "aiml": "Architected an analytics application using Python and Streamlit to evaluate campaign performance, with customer segmentation, feature engineering, EDA, and an LLM-driven Text-to-SQL agent.",
+        "domain": "Cross-track analytics work: segmentation and natural-language querying over campaign data, with automated chart generation.",
+        "balanced": "An analytics application for campaign performance, customer segmentation, and natural-language Text-to-SQL querying."
+      },
+      "stack": [
+        "Python",
+        "Streamlit",
+        "EDA",
+        "Segmentation",
+        "Text-to-SQL",
+        "Groq API"
+      ],
+      "live_url": "https://ntini97-marketing-campaign-analytics.hf.space/",
+      "repo_url": "https://github.com/nithansantiago021/Marketing_campaign_analytics.git",
+      "notebooks": [
+        {
+          "label": "EDA NOTEBOOK",
+          "url": "https://github.com/nithansantiago021/Marketing_campaign_analytics/blob/main/1)%20Python%20Notebook(s)/EDA.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "air-tracker-etl",
+      "title": "Flight Tracking ETL Pipeline",
+      "type": "etl_pipeline",
+      "type_label": "ETL pipeline",
+      "status": "repo",
+      "tracks": [
+        "aiml"
+      ],
+      "priority": {
+        "aiml": 6,
+        "domain": 9,
+        "balanced": 7
+      },
+      "category": {
+        "aiml": "Data Engineering",
+        "domain": "Cross-track Data Engineering",
+        "balanced": "Data Engineering"
+      },
+      "summary": {
+        "aiml": "Engineered a robust ETL pipeline fetching live data via the AeroDataBox API, automating transformation and cleaning workflows, and loading refined datasets into a relational MySQL database for real-time querying.",
+        "domain": "Cross-track data engineering work: API ingestion, transformation, and relational MySQL storage for aviation analytics.",
+        "balanced": "An ETL pipeline for live aviation data ingestion, transformation, cleaning, and relational MySQL storage."
+      },
+      "stack": [
+        "ETL",
+        "API Integration",
+        "MySQL",
+        "Python"
+      ],
+      "live_url": null,
+      "repo_url": "https://github.com/nithansantiago021/Air_tracker-Flight_Analytics.git"
+    },
+    {
+      "id": "india-climate-risk",
+      "title": "India Climate Risk & Warming Analysis — CMIP6",
+      "type": "notebook",
+      "type_label": "Analytical notebook",
+      "status": "repo",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "priority": {
+        "aiml": 7,
+        "domain": 2,
+        "balanced": 4
+      },
+      "category": {
+        "aiml": "Climate Data Science",
+        "domain": "CMIP6 / IMD Climate Risk",
+        "balanced": "Climate Data Science"
+      },
+      "summary": {
+        "aiml": "Built Python and Xarray pipelines for CMIP6 bias correction, state- and district-level spatial aggregation, OLS decadal warming trends, and a Streamlit dashboard for multi-scenario comparisons.",
+        "domain": "Applied Empirical Quantile Mapping (EQM) to bias-correct CMIP6 (MRI-ESM2-0) Tmax, Tmin, and Tmean projections against IMD 1995–2014 baseline observations across SSP126, SSP245, and SSP585 scenarios through 2100. Mapped gridded projections to Indian states and districts and computed OLS decadal warming trends.",
+        "balanced": "CMIP6 and IMD climate-risk analysis with EQM bias correction, state- and district-level aggregation, decadal warming trends, and a Streamlit scenario dashboard."
+      },
+      "stack": [
+        "Python",
+        "Xarray",
+        "NetCDF",
+        "NumPy",
+        "SciPy",
+        "Pandas",
+        "Streamlit",
+        "CMIP6",
+        "IMD",
+        "EQM"
+      ],
+      "live_url": "https://india-warming-risk-assessment-v01.streamlit.app/",
+      "repo_url": "https://github.com/nithansantiago021/India-Climate-Risk-assessment",
+      "notebooks": [
+        {
+          "label": "ANALYSIS NOTEBOOK",
+          "url": "https://github.com/nithansantiago021/India-Climate-Risk-assessment/blob/main/notebooks/CMIP6_bias_correction.ipynb"
+        }
+      ]
+    },
+    {
+      "id": "enso-iod-bushfire",
+      "title": "ENSO–IOD Teleconnections & Bushfire Risk",
+      "type": "visual_essay",
+      "type_label": "Visual study",
+      "status": "live",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "priority": {
+        "aiml": 8,
+        "domain": 3,
+        "balanced": 5
+      },
+      "category": {
+        "aiml": "Remote Sensing / Visual Analytics",
+        "domain": "Climate Teleconnections & Disaster Risk",
+        "balanced": "Climate Teleconnections"
+      },
+      "summary": {
+        "aiml": "Built a Google Earth Engine remote-sensing workflow and interactive visual essay tracking sea surface temperature, land surface temperature, drought, vegetation, and fire activity across four southeast Australian fire seasons.",
+        "domain": "Analysed ENSO–IOD climate teleconnections and their relationship with extreme-event conditions in southeast Australia using climate indices, MODIS, OISST, FIRMS, drought indicators, and Google Earth Engine.",
+        "balanced": "A remote-sensing visual study of ENSO–IOD teleconnections and bushfire risk across four southeast Australian fire seasons."
+      },
+      "stack": [
+        "Google Earth Engine",
+        "QGIS",
+        "MODIS",
+        "OISST",
+        "FIRMS",
+        "Climate Indices",
+        "Remote Sensing"
+      ],
+      "live_url": "assets/bushfire-iod-enso-study.html",
+      "repo_url": null
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "last_updated": "2026-11-25",
+    "default_track": "balanced"
+  },
+  "name": "Nithan B S",
+  "location": "Chennai, Tamil Nadu, India",
+  "languages": [
+    "English",
+    "Tamil",
+    "Hindi"
+  ],
+  "links": {
+    "github": "https://github.com/nithansantiago021",
+    "linkedin": "https://www.linkedin.com/in/nithanbs97/",
+    "huggingface": "https://huggingface.co/ntini97",
+    "email": "nithansantiago021@gmail.com",
+    "resume": {
+      "aiml": "assets/resume-aiml.pdf",
+      "domain": "assets/resume-domain.pdf"
+    }
+  },
+  "hero": {
+    "balanced": {
+      "eyebrow": "Environmental Data Science / AI Engineering / ESG & Geospatial",
+      "headline": "Environmental Data Scientist & AI Engineer",
+      "subheadline": "I build production AI systems and geospatial analytics for climate, sustainability, and environmental decision-making.",
+      "focus": [
+        "RAG and agentic systems",
+        "Geospatial intelligence",
+        "ESG and climate risk"
+      ],
+      "resume_label": "View both resumes"
+    },
+    "aiml": {
+      "eyebrow": "Applied AI / Data Science / Production Systems",
+      "headline": "Applied AI & Data Science Engineer",
+      "subheadline": "Building production RAG systems, multi-agent workflows, OCR evaluation pipelines, and scalable ETL architectures.",
+      "focus": [
+        "RAG and agents",
+        "OCR and evaluation",
+        "FastAPI, Docker, CI/CD"
+      ],
+      "resume_label": "Download AI/ML resume"
+    },
+    "domain": {
+      "eyebrow": "Geospatial / Climate / ESG Intelligence",
+      "headline": "Geospatial, Climate & ESG Intelligence Specialist",
+      "subheadline": "Building data and AI pipelines for physical climate risk modeling, satellite-based Biodiversity Net Gain compliance, and automated SEBI BRSR, TCFD, and CSRD disclosure intelligence.",
+      "focus": [
+        "CMIP6 and IMD",
+        "Biodiversity Net Gain",
+        "ESG and BRSR"
+      ],
+      "resume_label": "Download domain resume"
+    }
+  },
+  "education": [
+    {
+      "id": "msc-environmental-sciences",
+      "degree": "Integrated M.Sc. in Environmental Sciences",
+      "institution": "Central University of Rajasthan",
+      "period": "2015 – 2020",
+      "score": "CGPA: 6.97 / 10.00",
+      "details": "Dissertation: ENSO–IOD Teleconnections & Bushfire Risk.",
+      "tracks": [
+        "aiml",
+        "domain"
+      ]
+    }
+  ],
+  "credentials_and_achievements": [
+    {
+      "id": "guvi-hcl-master-data-science",
+      "title": "Master Data Science Certification",
+      "issuer": "GUVI - HCL",
+      "period": "2026",
+      "category": "certification",
+      "details": "Applied data science certification.",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "group": "computing_ai"
+    },
+    {
+      "id": "guvi-hcl-generative-ai-workshop",
+      "title": "Generative AI Workshop",
+      "issuer": "GUVI - HCL",
+      "period": "2026",
+      "category": "certification",
+      "details": "Generative AI workshop - Understanding RAG, AI Agents and Agentic AI.",
+      "tracks": [
+        "aiml"
+      ],
+      "group": "computing_ai"
+    },
+    {
+      "id": "iitm-pravartak-advanced-programming",
+      "title": "Certified Professional in Advanced Programming",
+      "issuer": "IITM Pravartak",
+      "period": "2026",
+      "category": "certification",
+      "details": "Professional certification in advanced programming.",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "group": "computing_ai"
+    },
+    {
+      "id": "bcg-climate-sustainability-simulation",
+      "title": "BCG Climate & Sustainability / ESG Job Simulation Certificate",
+      "issuer": "Boston Consulting Group (Forage)",
+      "period": "2026",
+      "category": "simulation",
+      "details": "Applied corporate sustainability, emissions analysis, and climate strategy recommendations.",
+      "tracks": [
+        "domain"
+      ],
+      "group": "domain"
+    },
+    {
+      "id": "wildfire-ml-paper-presentation",
+      "title": "Research Paper Presentation — Efficacy of Machine Learning Algorithm in Predicting Wildfire",
+      "issuer": "2nd International Workshop on Extreme Severe Storms and Disaster Mitigation Strategy",
+      "period": "27–29 Feb 2020",
+      "category": "presentation",
+      "details": "Presented research on machine learning for wildfire prediction.",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "group": "domain"
+    },
+    {
+      "id": "ugc-net-environmental-sciences",
+      "title": "UGC-NET Qualified — Environmental Sciences",
+      "issuer": "National Testing Agency (NTA)",
+      "period": "2021",
+      "category": "qualification",
+      "details": "Qualified the national eligibility test in Environmental Sciences.",
+      "tracks": [
+        "domain"
+      ],
+      "group": "other"
+    },
+    {
+      "id": "ignou-phd-entrance",
+      "title": "IGNOU Ph.D. Entrance Examination Qualified — Environmental Sciences",
+      "issuer": "Indira Gandhi National Open University",
+      "period": "2022",
+      "category": "qualification",
+      "details": "Qualified the IGNOU Ph.D. entrance examination in Environmental Sciences.",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "group": "other"
+    },
+    {
+      "id": "niot-scientist-b-interview",
+      "title": "NIOT Scientist-B — Interview Stage",
+      "issuer": "National Institute of Ocean Technology",
+      "period": "2022",
+      "category": "selection",
+      "tracks": [
+        "aiml",
+        "domain"
+      ],
+      "group": "other"
+    },
+    {
+      "id": "cuet-qualified",
+      "title": "CUCET (CUET) Qualified",
+      "issuer": "Central Universities Common Entrance Test",
+      "period": "2015",
+      "category": "qualification",
+      "group": "other",
+      "tracks": [
+        "aiml",
+        "domain"
+      ]
+    },
+    {
+      "id": "iit-jam-qualified",
+      "title": "IIT JAM Qualified",
+      "issuer": "Joint Admission Test for Masters",
+      "period": "2018",
+      "category": "qualification",
+      "group": "other",
+      "tracks": [
+        "aiml",
+        "domain"
+      ]
+    }
+  ]
+}
